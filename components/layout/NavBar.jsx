@@ -13,10 +13,12 @@ const menu = [
 
 export const NavBar = () => {
   return (
-    <div className="debug1 w-screen h-[10vh] fixed flex items-center">
-      <ul className="flex flex-row gap-5 items-center justify-around debug1 w-full">
+    <div className=" w-screen h-[10vh] fixed flex items-center debug1 z-50 bg-secondary">
+      <ul className="flex flex-row gap-5 items-center justify-around  w-full">
         {menu.map((item) => (
-          <li className="">{item.title}</li>
+          <li key={item.title} className="">
+            {item.title}
+          </li>
         ))}
       </ul>
     </div>

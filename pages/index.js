@@ -1,8 +1,9 @@
 import Head from 'next/head'
-import { Footer } from '../components/layout/Footer'
-import { Hero } from '../components/main/hero'
+import { Hero } from '../components/main/Hero'
 import { Portafolio } from '../components/main/Portafolio'
 import { Skills } from '../components/main/Skills'
+
+
 
 export default function Home() {
   return (

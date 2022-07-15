@@ -1,4 +1,4 @@
-export const skills = [
+export const skillsArray = [
   {
     'title': 'AWS',
     'subtitle': 'Amazon Web Services',
@@ -24,7 +24,7 @@ export const skills = [
     'features': [
       'WooCommerce',
       'LearnDash',
-      'Advanced Custom Fields',
+      'ACF - CPT',
       'BuddyPress',
       'REST API'
     ],
