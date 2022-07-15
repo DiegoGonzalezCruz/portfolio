@@ -3,12 +3,12 @@ import { skillsArray } from '../skills'
 
 export const Skills = () => {
   return (
-    <div className="flex flex-wrap justify-center gap-4 bg-secondary w-screen min-h-[100vh] py-10 debug1 ">
+    <div className="flex flex-wrap justify-center gap-4 bg-secondary w-screen min-h-[100vh] px-4 py-10 debug2 ">
       {skillsArray.map((skill, idx) => {
         return (
           <div
             key={skill.title + idx}
-            className="card w-1/6 h-2/3 bg-base-100 shadow-xl p-2  debug1"
+            className="card md:w-1/4 h-2/3 bg-base-100 shadow-xl p-2  "
           >
             <figure className="relative w-full h-48 border border-primary rounded-xl">
               <Image
@@ -17,13 +17,13 @@ export const Skills = () => {
                 objectFit={'contain'}
                 priority
                 alt="skills"
-                className="debug1 "
+                className=" "
               />
             </figure>
             <div className="p-4">
               <h2 className="card-title">{skill.title}</h2>
               <p>{skill.subtitle}</p>
-              <ul className="debug1">
+              <ul className=" flex gap-x-2 gap-y-1 flex-wrap">
                 {skill.features.map((feature) => {
                   return (
                     <div

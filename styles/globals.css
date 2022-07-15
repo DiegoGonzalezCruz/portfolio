@@ -4,6 +4,7 @@
 
 @layer base {
   h1 {
+    @apply text-base md:text-2xl xl:text-5xl;
   }
   h2 {
   }
@@ -12,8 +13,10 @@
   h4 {
   }
   p {
+    @apply text-base md:text-2xl xl:text-5xl;
   }
   li {
+    @apply text-base md:text-2xl xl:text-5xl;
   }
 }
 

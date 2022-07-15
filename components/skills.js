@@ -1,5 +1,16 @@
 export const skillsArray = [
   {
+    'title': 'Team Player',
+    'subtitle': 'Startup Founder',
+    'image': '/images/CabezaTHINKey.png',
+    'features': [
+      'Entrepreneur',
+      'Intrapreneur',
+      'Team leader',
+      'Empathy'
+    ]
+  },
+  {
     'title': 'AWS',
     'subtitle': 'Amazon Web Services',
     'image': '/images/aws.png',
@@ -35,6 +46,7 @@ export const skillsArray = [
     'subtitle': 'Serverless',
     'image': '/images/jamstack.png',
     'features': [
+      'ReactJs',
       'NextJs',
       'Wordpress Headless',
       'WooCommerce Headless',
