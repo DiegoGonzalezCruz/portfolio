@@ -1,4 +1,5 @@
 import Head from 'next/head'
+import { Contact } from '../components/main/Contact'
 import { Hero } from '../components/main/Hero'
 import { Portafolio } from '../components/main/Portafolio'
 import { Skills } from '../components/main/Skills'
@@ -16,6 +17,7 @@ export default function Home() {
       <Hero />
       <Skills />
       <Portafolio />
+      <Contact />
     </>
 
 

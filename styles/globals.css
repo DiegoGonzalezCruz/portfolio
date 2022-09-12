@@ -4,19 +4,22 @@
 
 @layer base {
   h1 {
-    @apply text-base md:text-2xl xl:text-5xl;
+    @apply text-base md:text-2xl xl:text-5xl 2xl:text-7xl font-title;
   }
   h2 {
+    @apply text-base md:text-2xl xl:text-5xl 2xl:text-7xl font-title;
   }
   h3 {
+    @apply text-base md:text-2xl xl:text-5xl 2xl:text-7xl font-subtitle;
   }
   h4 {
+    @apply text-base md:text-2xl xl:text-5xl 2xl:text-7xl font-subtitle;
   }
   p {
-    @apply text-base md:text-2xl xl:text-5xl;
+    @apply text-base md:text-2xl xl:text-5xl 2xl:text-4xl font-text;
   }
   li {
-    @apply text-base md:text-2xl xl:text-5xl;
+    @apply text-base md:text-2xl xl:text-3xl 2xl:text-6xl font-text;
   }
 }
 

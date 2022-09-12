@@ -1,20 +1,19 @@
 export const skillsArray = [
   {
-    'title': 'Team Player',
-    'subtitle': 'Startup Founder',
-    'image': '/images/CabezaTHINKey.png',
-    'features': [
-      'Entrepreneur',
-      'Intrapreneur',
-      'Team leader',
-      'Empathy'
-    ]
+    title: 'Team Player',
+    id: 0,
+    subtitle: 'Startup Founder',
+    image: '/images/CabezaTHINKey.png',
+    features: ['Entrepreneur', 'Intrapreneur', 'Team leader', 'Empathy'],
+    description:
+      'I am a team player who is always eager to learn new things. My entrepreneur spirit makes me always look for new opportunities.'
   },
   {
-    'title': 'AWS',
-    'subtitle': 'Amazon Web Services',
-    'image': '/images/aws.png',
-    'features': [
+    title: 'AWS',
+    id: 1,
+    subtitle: 'Amazon Web Services',
+    image: '/images/aws.png',
+    features: [
       'Lightsail',
       'S3',
       'SES',
@@ -24,42 +23,45 @@ export const skillsArray = [
       'RDS',
       'IAM',
       'MediaConverter',
-      'VPC',
+      'VPC'
     ],
-    'skill': '60'
+    description: "I've been working with AWS to put into production several wordpress sites."
   },
   {
-    'title': 'Wordpress',
-    'subtitle': 'Plugin Design',
-    'image': '/images/wordpress.png',
-    'features': [
+    title: 'Wordpress',
+    id: 2,
+    subtitle: 'Plugin Design',
+    image: '/images/wordpress.png',
+    features: [
       'WooCommerce',
       'LearnDash',
       'ACF - CPT',
       'BuddyPress',
       'REST API'
     ],
-    'skill': '80'
+    description: 'I started hacking Wordpress, creating plug-ins with new features.'
   },
   {
-    'title': 'JAMStack',
-    'subtitle': 'Serverless',
-    'image': '/images/jamstack.png',
-    'features': [
+    title: 'JAMStack',
+    id: 3,
+    subtitle: 'Serverless',
+    image: '/images/jamstack.png',
+    features: [
       'ReactJs',
       'NextJs',
       'Wordpress Headless',
       'WooCommerce Headless',
       'Server Side Rendering',
-      'Serverless Functions',
+      'Serverless Functions'
     ],
-    'skill': '80'
+    description: 'I started using Nextjs as framework for react, connecting it to Wordpress through REST API and GraphQL.'
   },
   {
-    'title': 'BackEnd',
-    'subtitle': 'Business Inteligence',
-    'image': '/images/backend.jpg',
-    'features': [
+    title: 'BackEnd',
+    id: 4,
+    subtitle: 'Business Inteligence',
+    image: '/images/backend.jpg',
+    features: [
       'Node.js',
       'Express',
       'MongoDB',
@@ -68,20 +70,16 @@ export const skillsArray = [
       'Google Analytics',
       'Ubuntu',
       'Linux',
+      'Nginx'
     ],
-    'skill': '70'
+    description: 'I have a strong foundation in Linux Ubuntu, computer nerd behind the code.'
   },
   {
-    'title': 'Languages',
-    'subtitle': "I'm fluent in",
-    'image': '/images/javascript.png',
-    'features': [
-      'JavaScript',
-      'PHP',
-      'English',
-      'Spanish',
-    ],
-    'skill': '70'
-
+    title: 'Languages',
+    id: 5,
+    subtitle: "I'm fluent in",
+    image: '/images/javascript.png',
+    features: ['JavaScript', 'PHP', 'English', 'Spanish'],
+    description: 'I love to write software in Javascript, PHP in a lesser way.'
   }
 ]

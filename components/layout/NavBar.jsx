@@ -16,9 +16,11 @@ export const NavBar = () => {
     <div className=" w-screen h-[10vh] fixed flex items-center z-50 bg-secondary">
       <ul className="flex flex-row gap-5 items-center justify-around  w-full">
         {menu.map((item) => (
-          <li key={item.title} className="">
-            {item.title}
-          </li>
+          <a href={item.url} key={item.title}>
+            <li key={item.title} className="">
+              {item.title}
+            </li>
+          </a>
         ))}
       </ul>
     </div>
