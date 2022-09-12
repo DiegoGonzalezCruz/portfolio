@@ -2,21 +2,21 @@ import Image from 'next/image'
 import React from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faCircleXmark } from '@fortawesome/free-solid-svg-icons'
-import { AnimatePresence, motion } from 'framer-motion'
+import { motion } from 'framer-motion'
 import { wrapperVariants } from '../animations/variants'
 
 export const SkillCardDescription = ({ skill, setSelectedSkill }) => {
-  console.log(skill, 'skill')
+  // console.log(skill, 'skill')
 
   return (
-    <motion.div className="h-screen w-screen  bg-white">
+    <motion.div className="h-screen w-screen ">
       <motion.div
         variants={wrapperVariants}
         initial="initial"
-        animate="animate"
+        whileInView="animate"
         exit="exit"
         key={skill.id}
-        className="w-full h-full mx-auto flex items-start justify-center z-40 fixed top-1/4    "
+        className="w-full h-full mx-auto flex items-start justify-center z-40 fixed top-1/4 left-0 overflow-hidden   "
       >
         <div className="card md:w-3/4 h-2/3 bg-base-100 shadow-xl p-5 flex flex-row ">
           <div
@@ -29,7 +29,7 @@ export const SkillCardDescription = ({ skill, setSelectedSkill }) => {
             />
           </div>
           <div className="w-1/2">
-            <figure className="relative w-full h-48 border border-primary rounded-xl">
+            <figure className="relative w-full h-48 border border-primary rounded-xl overflow-hidden">
               <Image
                 src={skill.image}
                 layout="fill"

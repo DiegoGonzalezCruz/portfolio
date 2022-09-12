@@ -1,3 +1,4 @@
+import { AnimatePresence } from 'framer-motion'
 import Image from 'next/image'
 import React, { useState } from 'react'
 import { Info } from '../cards/Info'
@@ -20,7 +21,9 @@ export const Hero = () => {
             />
           </div>
         </div>
-        {!flip ? <Welcome setFlip={setFlip} /> : <Info setFlip={setFlip} />}
+        <AnimatePresence initial={false}>
+          {!flip ? <Welcome setFlip={setFlip} /> : <Info setFlip={setFlip} />}
+        </AnimatePresence>
       </div>
     </div>
   )

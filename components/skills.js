@@ -6,7 +6,7 @@ export const skillsArray = [
     image: '/images/CabezaTHINKey.png',
     features: ['Entrepreneur', 'Intrapreneur', 'Team leader', 'Empathy'],
     description:
-      'I am a team player who is always eager to learn new things. My entrepreneur spirit makes me always look for new opportunities.'
+      'I am a team player who is always eager to learn new things. My entrepreneurial spirit makes me always look for new opportunities.'
   },
   {
     title: 'AWS',
@@ -25,7 +25,7 @@ export const skillsArray = [
       'MediaConverter',
       'VPC'
     ],
-    description: "I've been working with AWS to put into production several wordpress sites."
+    description: "I've been working with AWS mainly with WordPress instances, from design to production."
   },
   {
     title: 'Wordpress',
@@ -39,7 +39,7 @@ export const skillsArray = [
       'BuddyPress',
       'REST API'
     ],
-    description: 'I started hacking Wordpress, creating plug-ins with new features.'
+    description: 'I started hacking Wordpress, creating plug-ins with new features, and learning PHP and JavaScript along the way. I\'m fluent with most of its ecosystem: WooCommerce, Learndash, Custom Fields, etc.'
   },
   {
     title: 'JAMStack',
@@ -54,7 +54,7 @@ export const skillsArray = [
       'Server Side Rendering',
       'Serverless Functions'
     ],
-    description: 'I started using Nextjs as framework for react, connecting it to Wordpress through REST API and GraphQL.'
+    description: 'I love using Nextjs as a THE framework for React. I have strong experience connecting it to Wordpress through REST API and GraphQL. I am also confident using databases such as SQL, Mongo or Firebase.'
   },
   {
     title: 'BackEnd',
@@ -72,7 +72,7 @@ export const skillsArray = [
       'Linux',
       'Nginx'
     ],
-    description: 'I have a strong foundation in Linux Ubuntu, computer nerd behind the code.'
+    description: 'I have a strong foundation in Linux - Ubuntu, computer nerd science behind the code. I love to learn patterns and new strategies.'
   },
   {
     title: 'Languages',
@@ -80,6 +80,6 @@ export const skillsArray = [
     subtitle: "I'm fluent in",
     image: '/images/javascript.png',
     features: ['JavaScript', 'PHP', 'English', 'Spanish'],
-    description: 'I love to write software in Javascript, PHP in a lesser way.'
+    description: 'I\'m a Chilean software designer and I love to write software in Javascript and PHP. I\'m fluent in both Spanish and English.'
   }
 ]

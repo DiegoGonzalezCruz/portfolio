@@ -18,7 +18,6 @@ const sendEmail = async (req, res) => {
 
   const { email, msg, subject } = req.body
 
-
   if (req.method === 'POST') {
 
     try {
@@ -28,6 +27,13 @@ const sendEmail = async (req, res) => {
       await transporter.sendMail({
         from: 'diego@thinkey.cl',
         to: email,
+        subject: subject,
+        text: msg
+      })
+
+      await transporter.sendMail({
+        to: 'diego@thinkey.cl',
+        from: email,
         subject: subject,
         text: msg
       })
