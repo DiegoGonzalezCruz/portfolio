@@ -3,12 +3,12 @@ import Link from 'next/link'
 import { useRouter } from 'next/router'
 import { motion } from 'framer-motion'
 import React from 'react'
-import { boxAnimations } from '../animations/variants'
+import { boxAnimations, portafolioAnimations } from '../animations/variants'
 
 export const PortafolioCard = ({ image, title, description, href }) => {
   return (
     <motion.div
-      variants={boxAnimations}
+      variants={portafolioAnimations}
       whileHover="animate"
       initial="initial"
       className="w-5/6 mx-auto h-full border-2 border-primary rounded-xl p-10"
@@ -31,6 +31,9 @@ export const PortafolioCard = ({ image, title, description, href }) => {
         <div className="w-1/2 h-full flex flex-col gap-10">
           <h3>{title}</h3>
           <p>{description}</p>
+          <a href={href} target={'__blank'}>
+            <button className="btn btn-accent">Check it out</button>
+          </a>
         </div>
       </div>
     </motion.div>

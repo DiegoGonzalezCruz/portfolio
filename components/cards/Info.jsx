@@ -11,8 +11,8 @@ export const Info = ({ setFlip }) => {
       exit="exit"
       className="max-w-md"
     >
-      <h1 className="text-5xl font-bold">Fullstack Developer</h1>
-      <p className="py-6">
+      <h1 className="text-5xl font-bold text-white">Fullstack Developer</h1>
+      <p className="py-6 text-white">
         I love to design web apps with ReactJS, using its framework Nextjs. I
         can help you from idea to deployment.
       </p>

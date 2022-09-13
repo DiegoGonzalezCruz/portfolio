@@ -3,22 +3,25 @@ import React from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faCircleXmark } from '@fortawesome/free-solid-svg-icons'
 import { motion } from 'framer-motion'
-import { wrapperVariants } from '../animations/variants'
+import { skillsVariants } from '../animations/variants'
 
 export const SkillCardDescription = ({ skill, setSelectedSkill }) => {
   // console.log(skill, 'skill')
 
   return (
-    <motion.div className="h-screen w-screen ">
+    <motion.div
+      variants={skillsVariants}
+      initial="initial"
+      animate="animate"
+      exit="exit"
+      className="h-screen w-screen fixed top-0 z-50 bg-accent/70 py-10"
+    >
       <motion.div
-        variants={wrapperVariants}
-        initial="initial"
-        whileInView="animate"
-        exit="exit"
+        variants={skillsVariants}
         key={skill.id}
-        className="w-full h-full mx-auto flex items-start justify-center z-40 fixed top-1/4 left-0 overflow-hidden   "
+        className="w-full h-full mx-auto flex items-start justify-center z-40 overflow-hidden"
       >
-        <div className="card md:w-3/4 h-2/3 bg-base-100 shadow-xl p-5 flex flex-row ">
+        <div className="card md:w-3/4 h-full bg-base-100 shadow-xl p-5 flex flex-row ">
           <div
             className="absolute right-5"
             onClick={() => setSelectedSkill(null)}
@@ -45,10 +48,11 @@ export const SkillCardDescription = ({ skill, setSelectedSkill }) => {
             </div>
             <div>
               <ul className=" flex gap-x-2 gap-y-1 flex-wrap">
-                {skill.features.map((feature) => {
+                {skill.features.map((feature, idx) => {
+                  // console.log(feature.replace(/\s+/g, ''), '***')
                   return (
                     <div
-                      key={feature}
+                      key={feature.replace(/\s+/g, '') + idx}
                       className="badge badge-accent h-fit text-center"
                     >
                       <p className="text-xl">{feature}</p>
@@ -58,9 +62,9 @@ export const SkillCardDescription = ({ skill, setSelectedSkill }) => {
               </ul>
             </div>
           </div>
-          <div className="w-1/2 px-10 flex flex-col gap-10">
+          <div className="w-1/2 md:px-10 px-5 flex flex-col gap-10">
             <h2>Description:</h2>
-            <p>{skill.description}</p>
+            <p className="text-xl">{skill.description}</p>
           </div>
         </div>
       </motion.div>

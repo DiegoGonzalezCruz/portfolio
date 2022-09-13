@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "@aws-sdk/client-ses": "^3.168.0",
+    "@flodlc/nebula": "^1.0.56",
     "@fortawesome/fontawesome-svg-core": "^6.2.0",
     "@fortawesome/free-solid-svg-icons": "^6.2.0",
     "@fortawesome/react-fontawesome": "^0.2.0",
