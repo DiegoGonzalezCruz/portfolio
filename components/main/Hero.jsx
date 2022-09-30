@@ -27,6 +27,7 @@ export const Hero = () => {
               objectFit="cover"
               className="rounded-full"
               alt="Diego González Cruz"
+              priority
             />
           </div>
         </div>

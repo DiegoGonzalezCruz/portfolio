@@ -80,6 +80,6 @@ export const skillsArray = [
     subtitle: "I'm fluent in",
     image: '/images/javascript.png',
     features: ['JavaScript', 'PHP', 'English', 'Spanish'],
-    description: 'I\'m a Chilean software designer and I love to write software in Javascript and PHP. I\'m fluent in both Spanish and English.'
+    description: 'I\'m a Chilean software designer and I love to write code in Javascript and PHP if needed (if really needed). I\'m fluent in both Spanish and English.'
   }
 ]

@@ -8,12 +8,12 @@ export const SkillCard = ({ skill, idx, onClick }) => {
     <motion.div
       key={skill.title + idx}
       variants={boxAnimations}
-      className="card md:w-1/4 h-2/3 bg-base-100 shadow-xl p-2 cursor-pointer "
+      className="debug2 card w-1/3 h-2/3 bg-base-100 shadow-xl p-2 cursor-pointer "
       onClick={onClick}
       whileInView="animate"
       initial="initial"
     >
-      <figure className="relative w-full h-48 border border-primary rounded-xl overflow-hidden">
+      <figure className=" relative w-full h-48 border border-primary rounded-xl overflow-hidden">
         <Image
           src={skill.image}
           layout="fill"
@@ -35,7 +35,7 @@ export const SkillCard = ({ skill, idx, onClick }) => {
                 key={feature}
                 className="badge badge-accent h-10 text-center"
               >
-                <p className="text-xl">{feature}</p>
+                <p className="text-sm md:text-base">{feature}</p>
               </div>
             )
           })}
