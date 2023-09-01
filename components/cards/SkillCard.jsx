@@ -1,14 +1,14 @@
-import { motion } from 'framer-motion'
-import Image from "next/legacy/image";
-import React from 'react'
-import { boxAnimations } from '../animations/variants'
+import { motion } from "framer-motion";
+import Image from "next/image";
+import React from "react";
+import { boxAnimations } from "../animations/variants";
 
 export const SkillCard = ({ skill, idx, onClick }) => {
   return (
     <motion.div
       key={skill.title + idx}
       variants={boxAnimations}
-      className="card w-1/3 h-2/3 bg-base-100 shadow-xl p-2 cursor-pointer "
+      className="card w-full md:w-1/3 h-2/3 bg-base-100 shadow-xl p-2 cursor-pointer "
       onClick={onClick}
       whileInView="animate"
       initial="initial"
@@ -16,11 +16,10 @@ export const SkillCard = ({ skill, idx, onClick }) => {
       <figure className=" relative w-full h-48 border border-primary rounded-xl overflow-hidden">
         <Image
           src={skill.image}
-          layout="fill"
-          objectFit={'contain'}
-          priority
+          width={1000}
+          height={1000}
           alt="skills"
-          className=" "
+          className="h-full w-full object-cover "
         />
       </figure>
       <div className="p-4">
@@ -37,10 +36,10 @@ export const SkillCard = ({ skill, idx, onClick }) => {
               >
                 <p className="text-sm md:text-base">{feature}</p>
               </div>
-            )
+            );
           })}
         </ul>
       </div>
     </motion.div>
-  )
-}
+  );
+};
