@@ -8,7 +8,7 @@ export const SkillCard = ({ skill, idx, onClick }) => {
     <motion.div
       key={skill.title + idx}
       variants={boxAnimations}
-      className="debug2 card w-1/3 h-2/3 bg-base-100 shadow-xl p-2 cursor-pointer "
+      className="card w-1/3 h-2/3 bg-base-100 shadow-xl p-2 cursor-pointer "
       onClick={onClick}
       whileInView="animate"
       initial="initial"

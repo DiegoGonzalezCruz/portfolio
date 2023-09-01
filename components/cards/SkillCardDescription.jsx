@@ -6,7 +6,7 @@ import { motion } from 'framer-motion'
 import { skillsVariants } from '../animations/variants'
 
 export const SkillCardDescription = ({ skill, setSelectedSkill }) => {
-  console.log(skill, 'skill')
+  // console.log(skill, 'skill')
 
   return (
     <motion.div

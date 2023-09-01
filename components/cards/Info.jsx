@@ -13,8 +13,8 @@ export const Info = ({ setFlip }) => {
     >
       <h1 className="text-5xl font-bold text-white">Fullstack Developer</h1>
       <p className="py-6 text-white">
-        I love to design web apps with ReactJS, using its framework Nextjs. I
-        can help you from idea to deployment.
+        I can help you systematize your StartUp, providing world class software
+        for your employees.
       </p>
       <button className="btn btn-primary" onClick={() => setFlip(false)}>
         Go back

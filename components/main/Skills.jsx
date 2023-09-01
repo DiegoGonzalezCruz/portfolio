@@ -33,7 +33,7 @@ export const Skills = () => {
   return (
     <>
       <AnimatePresence initial={false}>
-        <div className="debug2 flex flex-wrap justify-center gap-4 bg-secondary w-screen h-fit px-4 py-10">
+        <div className=" flex flex-wrap justify-center gap-4 bg-secondary w-screen h-fit px-4 py-10">
           {renderSkills()}
         </div>
         {selectedSkill && (
