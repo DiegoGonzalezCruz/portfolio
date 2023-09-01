@@ -9,7 +9,7 @@ export const Hero = () => {
   const [flip, setFlip] = useState(false);
 
   return (
-    <div className="flex items-center justify-center bg-base-200 w-screen h-screen bg-black">
+    <div className="flex items-center justify-center bg-base-200 w-screen h-screen ">
       <ReactNebula />
       <div className="z-40 w-full h-full items-center justify-center text-center flex md:flex-row flex-col gap-10">
         <div className="xl:h-96 xl:w-96 md:h-48 md:w-48 h-24 w-24 rounded-full overflow-hidden flex items-center">
@@ -19,11 +19,8 @@ export const Hero = () => {
               className="rounded-full"
               alt="Diego González Cruz"
               priority
-              fill
-              sizes="100vw"
-              style={{
-                objectFit: "cover",
-              }}
+              width={400}
+              height={400}
             />
           </div>
         </div>
