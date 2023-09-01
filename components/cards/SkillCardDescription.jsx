@@ -1,4 +1,4 @@
-import Image from 'next/image'
+import Image from "next/legacy/image";
 import React from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faCircleXmark } from '@fortawesome/free-solid-svg-icons'
@@ -57,7 +57,7 @@ export const SkillCardDescription = ({ skill, setSelectedSkill }) => {
                     >
                       <p className="text-xl">{feature}</p>
                     </div>
-                  )
+                  );
                 })}
               </ul>
             </div>
@@ -69,5 +69,5 @@ export const SkillCardDescription = ({ skill, setSelectedSkill }) => {
         </div>
       </motion.div>
     </motion.div>
-  )
+  );
 }

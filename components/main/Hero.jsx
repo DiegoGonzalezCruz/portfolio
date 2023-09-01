@@ -1,5 +1,5 @@
 import { AnimatePresence } from 'framer-motion'
-import Image from 'next/image'
+import Image from "next/legacy/image";
 import React, { useState } from 'react'
 import { Info } from '../cards/Info'
 import { Welcome } from '../cards/Welcome'
