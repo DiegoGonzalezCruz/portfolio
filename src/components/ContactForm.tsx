@@ -1,9 +1,10 @@
 "use client";
 
 import dynamic from "next/dynamic";
-import { useActionState } from "react";
+import { useActionState, useEffect, useRef } from "react";
 import { sendContact, type ContactState } from "@/app/actions";
-import { serviceOptions } from "@/data/services";
+import { serviceOptions, type ServiceOption } from "@/data/services";
+import { trackLeadConversion } from "@/lib/ads";
 
 // lottie-web touches `document` on import and is heavy, so only load it after a send.
 const CoffeeAnimation = dynamic(() => import("./CoffeeAnimation"), { ssr: false });
@@ -22,8 +23,17 @@ function FieldError({ id, error }: { id: string; error?: string }) {
   );
 }
 
-export function ContactForm() {
+export function ContactForm({ defaultService }: { defaultService?: ServiceOption }) {
   const [state, formAction, pending] = useActionState(sendContact, initialState);
+
+  // Report the conversion once, and only for a real delivered inquiry.
+  const conversionSent = useRef(false);
+  useEffect(() => {
+    if (state.lead && !conversionSent.current) {
+      conversionSent.current = true;
+      trackLeadConversion();
+    }
+  }, [state.lead]);
 
   if (state.status === "success") {
     return (
@@ -97,7 +107,7 @@ export function ContactForm() {
                 type="radio"
                 name="service"
                 value={option.value}
-                defaultChecked={state.values?.service === option.value}
+                defaultChecked={(state.values?.service ?? defaultService) === option.value}
                 className="sr-only"
               />
               {option.label}

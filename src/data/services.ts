@@ -4,6 +4,7 @@ export type Service = {
   title: string;
   summary: string;
   items: string[];
+  link?: { href: string; label: string };
 };
 
 export const services: Service[] = [
@@ -35,6 +36,7 @@ export const services: Service[] = [
       "Honest AI strategy: where it helps your business, and where it doesn't",
       "AI-assisted development workflows for software teams",
     ],
+    link: { href: "/ai", label: "How I help teams with AI" },
   },
 ];
 

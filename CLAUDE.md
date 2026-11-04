@@ -34,6 +34,9 @@ There is no test suite. ESLint is intentionally held at v9: the React/a11y/impor
 - `src/app/page.tsx` composes the sections: `Hero`, `Services` (`#services`), `Work` (`#work`), `Recommendations` (`#recommendations`, not in the nav), `About` (`#about`) and `Contact` (`#contact`).
   - It also emits the JSON-LD (`Person` + `ProfessionalService`, area served Connecticut).
   - The nav anchors in `src/data/site.ts` depend on these ids. `mobile: false` hides a nav link below `sm` so the nav fits at 390px.
+- `src/app/ai/page.tsx`: the AI services landing page, and the Google Ads destination. Its copy is in `src/data/ai.ts`. It reuses `TestimonialQuote`, and `Contact` takes `title`/`intro`/`defaultService` props.
+- `src/app/privacy/page.tsx`: a plain-language privacy page. Keep it in sync with what the code actually collects.
+- Nav links are root-relative (`/#work`, `/ai`) so they work from every page. Internal links use `next/link`, because the lint rule requires it.
 - `src/app/sitemap.ts` and `robots.ts` build their URLs from `site.url`. `metadataBase` and the canonical URL in `layout.tsx` also come from it.
 - `src/data/` holds all site copy. Edit content here, not in components.
   - `site.ts`: name, location, email, URL, nav
@@ -68,6 +71,10 @@ There is no test suite. ESLint is intentionally held at v9: the React/a11y/impor
 - `next/image` in Next 16: use `preload` (not the deprecated `priority`). The default `qualities` is `[75]` only.
 
 ## Environment
+
+**Google Ads conversion tracking:**
+- Both `NEXT_PUBLIC_GOOGLE_ADS_ID` (`AW-…`) and `NEXT_PUBLIC_GOOGLE_ADS_LEAD_LABEL` are public. `GoogleTag` renders nothing until the ID is set.
+- `ContactState.lead` is true only for a real delivered inquiry, never for the honeypot path. `ContactForm` fires the conversion once when it flips.
 
 **No AWS access keys exist.** SES credentials come from Vercel OIDC federation.
 - Production sets `AWS_ROLE_ARN`. `actions.ts` passes it to `awsCredentialsProvider` from `@vercel/oidc-aws-credentials-provider`, which assumes the send-only role `portafolio-contact-form-ses`.

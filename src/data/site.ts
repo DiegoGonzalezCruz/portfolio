@@ -12,10 +12,14 @@ export const site = {
   },
 } as const;
 
-/** `mobile: false` hides the link below the `sm` breakpoint so the nav fits at 390px. */
+/**
+ * Root-relative so they work from /ai and /privacy too (on "/" they just scroll).
+ * `mobile: false` hides the link below the `sm` breakpoint so the nav fits at 390px.
+ */
 export const navItems = [
-  { label: "Services", href: "#services", mobile: true },
-  { label: "Work", href: "#work", mobile: true },
-  { label: "About", href: "#about", mobile: false },
-  { label: "Contact", href: "#contact", mobile: true },
+  { label: "AI", href: "/ai", mobile: true },
+  { label: "Services", href: "/#services", mobile: false },
+  { label: "Work", href: "/#work", mobile: true },
+  { label: "About", href: "/#about", mobile: false },
+  { label: "Contact", href: "/#contact", mobile: true },
 ] as const;

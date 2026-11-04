@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { site } from "@/data/site";
 import { LogoMark } from "./icons";
 import { SocialLinks } from "./SocialLinks";
@@ -14,7 +15,10 @@ export function Footer() {
               {site.tagline} · {site.location.city}, {site.location.regionName}
             </p>
             <p className="text-sm text-muted">
-              © {new Date().getFullYear()} {site.name}
+              © {new Date().getFullYear()} {site.name} ·{" "}
+              <Link href="/privacy" className="underline-offset-4 hover:text-fg hover:underline">
+                Privacy
+              </Link>
             </p>
           </div>
         </div>

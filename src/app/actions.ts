@@ -9,6 +9,8 @@ type Field = "name" | "email" | "message";
 
 export type ContactState = {
   status: "idle" | "success" | "error";
+  /** True only when a real inquiry was delivered (not the honeypot path); drives Ads conversions. */
+  lead?: boolean;
   message?: string;
   fieldErrors?: Partial<Record<Field, string>>;
   /** Echoed back on error so the form keeps what the visitor typed. */
@@ -151,5 +153,5 @@ ${site.url}
     console.error("[contact] failed to send auto-reply", error);
   }
 
-  return { status: "success" };
+  return { status: "success", lead: true };
 }

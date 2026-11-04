@@ -1,6 +1,7 @@
 import type { Metadata, Viewport } from "next";
 import { Inter, Montserrat_Alternates } from "next/font/google";
 import { Footer } from "@/components/Footer";
+import { GoogleTag } from "@/components/GoogleTag";
 import { NavBar } from "@/components/NavBar";
 import { site } from "@/data/site";
 import { themeScript } from "@/lib/theme-script";
@@ -64,6 +65,7 @@ export default function RootLayout({
         <NavBar />
         {children}
         <Footer />
+        <GoogleTag />
       </body>
     </html>
   );

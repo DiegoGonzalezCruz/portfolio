@@ -1,14 +1,9 @@
 import Image from "next/image";
-import {
-  clientWork,
-  featuredWork,
-  moreWork,
-  type ClientWork,
-  type Testimonial,
-} from "@/data/work";
+import { clientWork, featuredWork, moreWork, type ClientWork } from "@/data/work";
 import { ArrowUpRightIcon } from "./icons";
 import { Reveal } from "./Reveal";
 import { SectionHeading } from "./SectionHeading";
+import { TestimonialQuote } from "./TestimonialQuote";
 
 function Tags({ tags, label }: { tags: string[]; label: string }) {
   return (
@@ -63,59 +58,6 @@ function Highlights({ items }: { items: string[] }) {
 
 function GroupHeading({ children }: { children: React.ReactNode }) {
   return <h3 className="mb-6 font-display text-xl font-bold">{children}</h3>;
-}
-
-function TestimonialQuote({ testimonial }: { testimonial: Testimonial }) {
-  const initials = testimonial.name
-    .split(" ")
-    .map((part) => part[0])
-    .join("");
-
-  return (
-    <figure className="flex h-full flex-col justify-between gap-6 bg-linear-to-br from-primary/10 via-accent-mid/5 to-cyan/10 p-6 md:p-8">
-      <blockquote cite={testimonial.sourceUrl}>
-        <span aria-hidden className="block font-display text-6xl leading-none text-accent">
-          “
-        </span>
-        <p className="font-display text-xl leading-snug font-semibold text-balance md:text-2xl">
-          {testimonial.pullQuote}
-        </p>
-        <div className="mt-5 flex flex-col gap-3 text-sm leading-relaxed text-muted">
-          {testimonial.excerpt.map((sentence) => (
-            <p key={sentence}>“{sentence}”</p>
-          ))}
-        </div>
-      </blockquote>
-      <figcaption className="flex flex-col gap-4">
-        <div className="flex items-center gap-3">
-          <span
-            aria-hidden
-            className="grid size-11 shrink-0 place-items-center rounded-full bg-primary font-display font-bold text-white"
-          >
-            {initials}
-          </span>
-          <div>
-            <a
-              href={testimonial.profileUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="font-semibold hover:text-cyan"
-            >
-              {testimonial.name}
-              <span className="sr-only"> (LinkedIn profile, opens in a new tab)</span>
-            </a>
-            <p className="text-sm text-muted">{testimonial.title}</p>
-            <p className="text-sm text-muted">{testimonial.relationship}</p>
-          </div>
-        </div>
-        <div className="text-sm">
-          <ExternalLink href={testimonial.sourceUrl} name={`${testimonial.name}'s recommendation`}>
-            {testimonial.sourceLabel}
-          </ExternalLink>
-        </div>
-      </figcaption>
-    </figure>
-  );
 }
 
 function ClientWorkCard({ work, flip }: { work: ClientWork; flip: boolean }) {

@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { services } from "@/data/services";
 import { Reveal } from "./Reveal";
 import { SectionHeading } from "./SectionHeading";
@@ -41,6 +42,15 @@ export function Services() {
                   </li>
                 ))}
               </ul>
+              {service.link && (
+                <Link
+                  href={service.link.href}
+                  className="mt-6 inline-flex items-center gap-1.5 self-start font-semibold text-cyan transition-colors hover:text-fg"
+                >
+                  {service.link.label}
+                  <span aria-hidden>→</span>
+                </Link>
+              )}
             </article>
           </Reveal>
         ))}
