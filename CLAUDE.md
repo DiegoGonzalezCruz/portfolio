@@ -24,6 +24,8 @@ pnpm build       # next build — also type-checks
 pnpm start       # serve the production build
 pnpm lint        # eslint (flat config in eslint.config.mjs; `next lint` no longer exists in Next 16)
 pnpm typecheck   # tsc --noEmit
+pnpm ads:status  # read-only Google Ads report (AI-services account)
+pnpm ads:campaign [--apply]  # validate ads/campaign.config.mts; --apply creates it PAUSED
 ```
 
 There is no test suite. ESLint is intentionally held at v9: the React/a11y/import plugins bundled by `eslint-config-next` don't support ESLint 10 yet.
@@ -75,6 +77,13 @@ There is no test suite. ESLint is intentionally held at v9: the React/a11y/impor
 **Google Ads conversion tracking:**
 - Both `NEXT_PUBLIC_GOOGLE_ADS_ID` (`AW-…`) and `NEXT_PUBLIC_GOOGLE_ADS_LEAD_LABEL` are public. `GoogleTag` renders nothing until the ID is set.
 - `ContactState.lead` is true only for a real delivered inquiry, never for the honeypot path. `ContactForm` fires the conversion once when it flips.
+
+**Google Ads (`ads/`):**
+- The account is "Chilean Developer" (403-596-5482), USD, America/New_York, under the THINKey manager account 669-541-0586.
+- The campaign is declared in `ads/campaign.config.mts`. Edit the config rather than click-editing in the UI, so the repo stays the source of truth.
+- The scripts read the gitignored `.env.ads`: developer token, `GOOGLE_ADS_CUSTOMER_ID`, `GOOGLE_ADS_LOGIN_CUSTOMER_ID`. Auth is gcloud ADC with the adwords scope.
+- `create-campaign.mts` refuses non-USD accounts and THINKey SpA.
+- Budget changes and switching campaigns on are Diego's call.
 
 **No AWS access keys exist.** SES credentials come from Vercel OIDC federation.
 - Production sets `AWS_ROLE_ARN`. `actions.ts` passes it to `awsCredentialsProvider` from `@vercel/oidc-aws-credentials-provider`, which assumes the send-only role `portafolio-contact-form-ses`.
