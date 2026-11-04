@@ -1,6 +1,7 @@
 "use server";
 
 import { SESv2Client, SendEmailCommand } from "@aws-sdk/client-sesv2";
+import { awsCredentialsProvider } from "@vercel/oidc-aws-credentials-provider";
 import { serviceOptions } from "@/data/services";
 import { site } from "@/data/site";
 
@@ -23,14 +24,14 @@ let client: SESv2Client | undefined;
 
 function sesClient() {
   if (!client) {
-    const accessKeyId = process.env.SYSTEM_AWS_ACCESS_KEY_ID;
-    const secretAccessKey = process.env.SYSTEM_AWS_SECRET_ACCESS_KEY;
+    const roleArn = process.env.AWS_ROLE_ARN;
     client = new SESv2Client({
+      // Must match var.aws_region in infra/.
       region: "us-east-1",
-      // Fall back to the default AWS credential chain when the env vars are unset.
-      ...(accessKeyId && secretAccessKey
-        ? { credentials: { accessKeyId, secretAccessKey } }
-        : {}),
+      // On Vercel: short-lived credentials via OIDC federation, assuming the
+      // send-only role from infra/ (no stored access keys). Locally, with no
+      // AWS_ROLE_ARN, the default AWS credential chain (your CLI profile) is used.
+      ...(roleArn ? { credentials: awsCredentialsProvider({ roleArn }) } : {}),
     });
   }
   return client;

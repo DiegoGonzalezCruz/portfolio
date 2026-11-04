@@ -69,6 +69,13 @@ There is no test suite. ESLint is intentionally held at v9: the React/a11y/impor
 
 ## Environment
 
-`.env` (gitignored): `SYSTEM_AWS_ACCESS_KEY_ID`, `SYSTEM_AWS_SECRET_ACCESS_KEY` for SES. If they're unset, the SES client falls back to the default AWS credential chain.
+**No AWS access keys exist.** SES credentials come from Vercel OIDC federation.
+- Production sets `AWS_ROLE_ARN`. `actions.ts` passes it to `awsCredentialsProvider` from `@vercel/oidc-aws-credentials-provider`, which assumes the send-only role `portafolio-contact-form-ses`.
+- The role trusts only `owner:thinkey:project:portafolio:environment:production`, so preview deployments can't send.
+- Locally, with no `AWS_ROLE_ARN`, the SDK uses the default credential chain, which is your AWS CLI `default` profile in the THINKey account.
+
+**AWS side (`infra/`):** the SES identity, OIDC provider, role and policy are managed with OpenTofu. See `infra/README.md`.
+- The provider's `allowed_account_ids` refuses any account but THINKey's. The account ID lives in the gitignored `infra/terraform.tfvars`, because the repo is public.
+- Never use the `nisa-cc` AWS profile for this project.
 
 Testing the contact form with valid input sends real email. Empty or invalid input, or a filled honeypot, returns before any SES call.

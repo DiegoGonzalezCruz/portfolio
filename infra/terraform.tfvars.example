@@ -1,0 +1,2 @@
+# Copy to terraform.tfvars (gitignored) and fill in the THINKey AWS account ID.
+aws_account_id = "000000000000"
