@@ -12,7 +12,8 @@
     "start": "next start",
     "lint": "eslint",
     "typecheck": "tsc --noEmit",
-    "ads:campaign": "node --env-file=.env.ads ads/create-campaign.mts"
+    "ads:campaign": "node --env-file=.env.ads ads/create-campaign.mts",
+    "ads:status": "node --env-file=.env.ads ads/status.mts"
   },
   "dependencies": {
     "@aws-sdk/client-sesv2": "^3.1161.0",
