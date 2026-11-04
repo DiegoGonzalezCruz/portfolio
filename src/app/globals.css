@@ -1,0 +1,84 @@
+/* Rank lottie-react's injected defaults below Tailwind's layers so utilities win. */
+@layer lottie-react;
+@import "tailwindcss";
+
+/*
+ * Theme is driven by <html data-theme="light|dark">, set before first paint by
+ * the inline script in src/lib/theme-script.ts. `dark:` targets data-theme, not
+ * the media query, so the toggle can override the system preference.
+ */
+@custom-variant dark (&:where([data-theme=dark], [data-theme=dark] *));
+
+/*
+ * Semantic design tokens. Defaults are the dark theme; [data-theme=light]
+ * below redefines the same variables. Palette is pulled from the hero
+ * portrait: violet + cyan. Must stay `@theme` (not `@theme inline`) so
+ * utilities reference the variables and pick up the overrides.
+ */
+@theme {
+  --color-canvas: #07060f;
+  --color-surface: #0c0a18;
+  --color-line: rgb(255 255 255 / 0.08);
+  --color-fg: #ece9f7;
+  --color-muted: #a7a2c3;
+  --color-accent: #a78bfa;
+  --color-accent-mid: #f0abfc;
+  --color-cyan: #67e8f9;
+  --color-primary: #7c3aed;
+  --color-primary-hover: #6d28d9;
+  --color-danger: #fda4af;
+
+  --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+  --font-display: var(--font-montserrat-alternates), var(--font-inter),
+    ui-sans-serif, system-ui, sans-serif;
+}
+
+@layer base {
+  :root {
+    color-scheme: dark;
+  }
+
+  :root[data-theme="light"] {
+    color-scheme: light;
+    --color-canvas: #f8f7fc;
+    --color-surface: #ffffff;
+    --color-line: rgb(22 19 43 / 0.1);
+    --color-fg: #16132b;
+    --color-muted: #575271;
+    --color-accent: #6d28d9;
+    --color-accent-mid: #c026d3;
+    --color-cyan: #0e7490;
+    --color-danger: #be123c;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 5rem;
+  }
+
+  body {
+    @apply bg-canvas font-sans text-fg antialiased;
+  }
+
+  ::selection {
+    @apply bg-accent/30;
+  }
+
+  :focus-visible {
+    @apply outline-2 outline-offset-2 outline-cyan;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+  }
+}
+
+@utility text-gradient {
+  @apply bg-linear-to-r from-accent via-accent-mid to-cyan bg-clip-text text-transparent;
+}
+
+@utility card {
+  @apply rounded-2xl border border-line bg-surface/70 shadow-sm shadow-violet-950/5 backdrop-blur-sm;
+}
