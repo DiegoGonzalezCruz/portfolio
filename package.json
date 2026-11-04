@@ -11,7 +11,8 @@
     "build": "next build",
     "start": "next start",
     "lint": "eslint",
-    "typecheck": "tsc --noEmit"
+    "typecheck": "tsc --noEmit",
+    "ads:campaign": "node --env-file=.env.ads ads/create-campaign.mts"
   },
   "dependencies": {
     "@aws-sdk/client-sesv2": "^3.1161.0",
@@ -30,6 +31,7 @@
     "@types/react-dom": "^19.3.0",
     "eslint": "^9.39.5",
     "eslint-config-next": "16.4.5",
+    "google-auth-library": "^11.3.3",
     "tailwindcss": "^4.3.4",
     "typescript": "^5.9.3"
   }
