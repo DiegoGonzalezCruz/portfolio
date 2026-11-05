@@ -14,7 +14,8 @@
     "typecheck": "tsc --noEmit",
     "ads:campaign": "node --env-file=.env.ads ads/create-campaign.mts",
     "ads:status": "node --env-file=.env.ads ads/status.mts",
-    "ads:set-status": "node --env-file=.env.ads ads/set-status.mts"
+    "ads:set-status": "node --env-file=.env.ads ads/set-status.mts",
+    "report:weekly": "node --disable-warning=MODULE_TYPELESS_PACKAGE_JSON --env-file=.env.ads reports/weekly.mts"
   },
   "dependencies": {
     "@aws-sdk/client-sesv2": "^3.1161.0",

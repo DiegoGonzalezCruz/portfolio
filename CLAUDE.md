@@ -27,7 +27,10 @@ pnpm typecheck   # tsc --noEmit
 pnpm ads:status  # read-only Google Ads report (AI-services account)
 pnpm ads:campaign [--apply]  # validate ads/campaign.config.mts; --apply creates it PAUSED
 pnpm ads:set-status <campaignId> ENABLED|PAUSED  # turn a campaign on/off (ENABLED spends money: Diego's call)
+pnpm report:weekly [--email]  # Ads + Search Console weekly report; --email sends it to site.email via SES
 ```
+
+`reports/install-schedule.sh` installs a macOS LaunchAgent (`com.chileandeveloper.weekly-report`) that runs `report:weekly --email` on Mondays at 08:00, with logs in `~/Library/Logs/chileandeveloper/`. `--remove` uninstalls it. It needs gcloud ADC with both the `adwords` and `webmasters.readonly` scopes. The Search Console property is `sc-domain:chileandeveloper.com`; its verification TXT record in Route 53 must stay.
 
 There is no test suite. ESLint is intentionally held at v9: the React/a11y/import plugins bundled by `eslint-config-next` don't support ESLint 10 yet.
 
