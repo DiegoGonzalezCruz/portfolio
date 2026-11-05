@@ -26,6 +26,7 @@ pnpm lint        # eslint (flat config in eslint.config.mjs; `next lint` no long
 pnpm typecheck   # tsc --noEmit
 pnpm ads:status  # read-only Google Ads report (AI-services account)
 pnpm ads:campaign [--apply]  # validate ads/campaign.config.mts; --apply creates it PAUSED
+pnpm ads:set-status <campaignId> ENABLED|PAUSED  # turn a campaign on/off (ENABLED spends money: Diego's call)
 ```
 
 There is no test suite. ESLint is intentionally held at v9: the React/a11y/import plugins bundled by `eslint-config-next` don't support ESLint 10 yet.
