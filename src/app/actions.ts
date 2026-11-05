@@ -2,6 +2,7 @@
 
 import { SESv2Client, SendEmailCommand } from "@aws-sdk/client-sesv2";
 import { awsCredentialsProvider } from "@vercel/oidc-aws-credentials-provider";
+import { checkBotId } from "botid/server";
 import { serviceOptions } from "@/data/services";
 import { site } from "@/data/site";
 
@@ -91,6 +92,24 @@ export async function sendContact(
   };
   const serviceLabel =
     serviceOptions.find((o) => o.value === values.service)?.label ?? "Not specified";
+
+  // Vercel BotID (token attached by src/instrumentation-client.ts). Checked
+  // before validation so the bot path can be tested in production without
+  // sending email. Always "human" in local dev. If the check itself fails,
+  // let the message through: the firewall rate limit still applies.
+  let isBot = false;
+  try {
+    ({ isBot } = await checkBotId());
+  } catch (error) {
+    console.error("[contact] BotID check failed; allowing", error);
+  }
+  if (isBot) {
+    return {
+      status: "error",
+      message: `Sorry, the form couldn't verify your message. Please email me directly at ${site.email}.`,
+      values,
+    };
+  }
 
   const fieldErrors: ContactState["fieldErrors"] = {};
   if (!values.name) fieldErrors.name = "Please tell me your name.";

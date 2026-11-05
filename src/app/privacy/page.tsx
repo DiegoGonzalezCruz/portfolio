@@ -7,7 +7,7 @@ export const metadata: Metadata = {
   alternates: { canonical: "/privacy" },
 };
 
-const updated = "November 4, 2026";
+const updated = "November 5, 2026";
 
 /*
  * Plain-language summary of what the site actually does. Draft written for
@@ -39,6 +39,12 @@ export default function PrivacyPage() {
             through Amazon Web Services (SES). I use this information only to reply to you
             and keep it in my email for as long as we&apos;re in touch. I don&apos;t sell it
             or share it with anyone else.
+          </p>
+          <p>
+            To keep out automated spam, the form uses Vercel BotID, an invisible check of
+            signals from your browser that tells people apart from automated scripts, and
+            limits how often it can be sent from one IP address. Both are used only to
+            protect the form.
           </p>
         </section>
 

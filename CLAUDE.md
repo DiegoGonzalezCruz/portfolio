@@ -65,6 +65,13 @@ There is no test suite. ESLint is intentionally held at v9: the React/a11y/impor
   All mail is sent **from** `site.email`, so that domain must be a verified SES identity.
   - The visitor's name is echoed into the auto-reply, which is why it's restricted to a single line with no URLs.
   - The optional `service` radio is checked against `serviceOptions`. Unknown values are dropped.
+  - **Spam protection** (the auto-reply goes to any address typed in, so it must not be scriptable):
+    - honeypot first
+    - then Vercel BotID basic (`checkBotId()`), before validation, so the bot path returns an error without sending email
+    - `src/instrumentation-client.ts` must list every page that renders `<Contact>` (`/`, `/ai`), because a Server Action POSTs to its page
+    - `withBotId` in `next.config.ts` proxies the challenge script
+    - BotID always returns "human" in `next dev`, so test it on production
+    - a Vercel WAF rule, "Contact form rate limit", configured in the dashboard/CLI rather than the repo, rate-limits POSTs carrying a `next-action` header by IP: 10 per hour, then deny
 - **Styling:** Tailwind 4 configured in CSS. There is no `tailwind.config.js`. Everything lives in `src/app/globals.css`: semantic colour tokens (`canvas`, `surface`, `line`, `fg`, `muted`, `accent`, `accent-mid`, `cyan`, `primary`, `primary-hover`, `danger`), fonts, and the custom `card` / `text-gradient` utilities.
   - Use these tokens rather than raw palette colours so both themes work. For example, use `bg-fg/5` for subtle tints, not `bg-white/5`.
 - **Light/dark theme:** `<html data-theme="light|dark">` drives the theme.
